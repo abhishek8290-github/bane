@@ -1,0 +1,9 @@
+replicaCount: 0
+
+image:
+  repository: asia-south1-docker.pkg.dev/elevated-dynamo-2024/bane-prod/bane
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort!
+  port: 3000

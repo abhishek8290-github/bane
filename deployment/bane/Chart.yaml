@@ -1,0 +1,4 @@
+apiVersion: v2
+name: bane
+description: A Helm chart for the Express application
+version: 1.0.0

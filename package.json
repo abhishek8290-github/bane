@@ -1,0 +1,14 @@
+{
+  "name": "bane",
+  "version": "1.0.0",
+  "description": "This will talk to the blockchains and get the necessary data related to a wallet ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
