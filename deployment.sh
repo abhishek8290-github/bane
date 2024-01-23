@@ -1,5 +1,5 @@
 
-docker build --platform linux/amd64 -t baneapp . 
+docker build --platform linux/amd64 -t baneapp:latest . 
 
 docker tag baneapp asia-south1-docker.pkg.dev/elevated-dynamo-2024/bane-prod/bane
 

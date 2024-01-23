@@ -1,13 +1,38 @@
-const express = require('express');
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send('chill bro');
-});
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
+const app = require('./app');
 
 
-// docker build --platform linux/amd64 -t lakhansamani/docker-demo .
+const PORT = process.env.PORT || 3000;
+
+const server = app.listen(PORT, () => {
+    console.log(`Listening to port ${PORT}`);
+  });
+
+
+const exitHandler = () => {
+    if (server) {
+      server.close(() => {
+        process.exit(1);
+      });
+    } else {
+      process.exit(1);
+    }
+  };
+  
+const unexpectedErrorHandler = (error) => {
+    // logger.error(error);
+    exitHandler();
+  };
+  
+  process.on('uncaughtException', unexpectedErrorHandler);
+  process.on('unhandledRejection', unexpectedErrorHandler);
+  
+  process.on('SIGTERM', () => {
+    // logger.info('SIGTERM received');
+    if (server) {
+      server.close();
+    }
+  });
+  
+
+
+
